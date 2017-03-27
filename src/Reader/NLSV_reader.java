@@ -21,9 +21,7 @@ public class NLSV_reader extends DataReader {
         int[] numbers = new int[6];
         try {
             while ((str = scanner.nextLine()) != null) {
-                System.out.println("jan");
                 numbers[i] = Integer.parseInt(str.trim());
-                System.out.println(numbers[i]);
                 i++;
             }
         }catch (Exception e){

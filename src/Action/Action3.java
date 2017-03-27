@@ -15,6 +15,7 @@ public class Action3 extends Action {
             }
             else oddSum += numbers[i];
         }
+        System.out.println("After action 3: ");
         System.out.println("Sum of even numbers is: " + evenSum);
         System.out.println("Sum of odd numbers is: " + oddSum);
         return 0;

@@ -16,6 +16,9 @@ import java.util.Scanner;
  */
 public class Client {
     final String FILEPATH = "D:\\projects\\FileReader\\src\\";
+    Action obj;
+    int[] numbres;
+    String str= "";
     public void start() throws IOException {
         System.out.println("Enter file name.");
         Scanner scanner = new Scanner(System.in);
@@ -24,30 +27,32 @@ public class Client {
         int numberId = scanner.nextInt();
         DataReader dataReader = fileExtention(fileName);
         try {
-            dataReader.makeArray(FILEPATH + fileName);
+            numbres = dataReader.makeArray(FILEPATH + fileName);
         }catch (FileNotFoundException e){
             System.out.println("File not found.");
         }
         switch (numberId){
             case 1: {
-                Action obj = new Action1();
+                obj = new Action1();
                 System.out.println("action 1: ");
-                System.out.println("Sum numbers is: " + obj.doAction(dataReader.makeArray(FILEPATH + fileName)));
+                str = "After action 1: ";
                 break;
             }
             case 2: {
-                Action obj = new Action2();
+                obj = new Action2();
                 System.out.println("action 2: ");
-                System.out.println("Sum numbers is: " + obj.doAction(dataReader.makeArray(FILEPATH + fileName)));
+                str = "After action 2: ";
                 break;
             }
             case 3: {
-                Action obj = new Action3();
+                obj = new Action3();
                 System.out.println("action 3: ");
-                obj.doAction(dataReader.makeArray(FILEPATH + fileName));
+                obj.doAction(numbres);
                 break;
             }
         }
+        if (numberId != 3)
+        System.out.println(str + obj.doAction(numbres));
     }
 
     public DataReader fileExtention(String filename){
